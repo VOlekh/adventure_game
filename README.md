@@ -59,76 +59,57 @@ The program is a playable game, and runs from start to finish without crashing o
 
 
 ## Contributing
-TB changed
-The script.js JavaScript code works with the provided HTML and CSS files. The script.js file is properly linked to the HTML file, and loading the HTML file shows the correct functionality for the application.
+
+The script.js Python code works in comand console. to start a game open GIT BASH, print: "python adventure_game_Valentina_Olekhnovich". Don't forget to change directory mit cd- comand on directory where you coped a file.
 
 ## Code Description
-TB changed
- Work with file designs.js.
-
-
-**Description:** 
-TB changed
-- make clear up grid function, withot this new grid will be added below the old one.
-Tipps: the same can be made by Element.innerHTML (or jQuery's .html())
-
+Use time module and the time.sleep function. This will cause a 1-second delay after the print statement.
 
 ```
-function clearGrid(){
-    //To remove all children from an element:
-    while (table.firstChild) {
-      table.removeChild(table.firstChild);
-    };
-    };
+import time
 ```
-_________________________________________________    
-Some notes on Markdown
 
-And in that moment I thought to myself: _Did I turn off the stove?_
+```
+def print_pause(print_text):
+    print(print_text)
+    time.sleep(1)
+```
+Use random.choice function to influence the game so that each game is different in some way.
+```
+import random
+```
 
-## This is an h2.
+```
+    enemy_list = ['dog', 'elephant', 'tiger', 'monkey', 'octopus',
+                  'robot', 'unicorn', 'vampire', 'Freddie Mercury']
+    enemy = random.choice(enemy_list)
+```    
+The code includes several function definitions that are used to improve the code in some way.
 
-### This is an h3.
+- greetings()
+- villa(enemy, items)
+- greetings_in_forest(enemy, items)
+- def forest(enemy, items)
+- def rock(enemy, items)
+- def choice_wrong_answer(choice)
+- def play_again()
+- def choose()
+- def start_game()
 
-You can indicate emphasis with bold, italic, or strikethrough text.
 
-Style	Syntax	Keyboard shortcut	Example	Output
-Bold	** ** or __ __	command/control + b	**This is bold text**	This is bold text
-Italic	* * or _ _	command/control + i	*This text is italicized*	This text is italicized
-Strikethrough	~~ ~~		~~This was mistaken text~~	This was mistaken text
-Bold and nested italic	** ** and _ _		**This text is _extremely_ important**	This text is extremely important
-All bold and italic	*** ***		***All this text is important***	All this text is important
+In play_again function used lower(), which returns a copy of a string, entered by user, in which all characters are lowercase
+``` 
+def play_again():
+    play_again_choice = input("Would you like to play again? ").lower()
+    if play_again_choice == "no":
+        print_pause("FINISH")
+    elif play_again_choice == "yes":
+        choose()
+    else:
+        print_pause("Sorry, I don't understand you, plese answer yes or no")
+        play_again()
+``` 
 
 
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-__________________________________
-Commit Messages
-Message Structure
-A commit messages consists of three distinct parts separated by a blank line: the title, an optional body and an optional footer. The layout looks like this:
+The pycodestyle tool use to check errors and warnings.
 
-type: subject
-
-body
-
-footer
-The title consists of the type of the message and subject.
-
-The Type
-The type is contained within the title and can be one of these types:
-
-feat: a new feature
-fix: a bug fix
-docs: changes to documentation
-style: formatting, missing semi colons, etc; no code change
-refactor: refactoring production code
-test: adding tests, refactoring test; no production code change
-chore: updating build tasks, package manager configs, etc; no production code change
-The Subject
-Subjects should be no greater than 50 characters, should begin with a capital letter and do not end with a period.
-
-Use an imperative tone to describe what a commit does, rather than what it did. For example, use change; not changed or changes.
-
-The Body
-Not all commits are complex enough to warrant a body, therefore it is optional and only used when a commit requires a bit of explanation and context. Use the body to explain the what and why of a commit, not the how.
